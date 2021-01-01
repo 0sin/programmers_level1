@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>k번째 수</title>
+    <style>
+      .question {max-width: 800px;}
+      .question img {width: 100%;}
+      .display_answer {font-size: 18px;}
+    </style>
+  </head>
+  <body>
+    <h1>k번째 수</h1>
+    <div class="question">
+      <img src="img/kth.png" alt="https://programmers.co.kr/learn/courses/30/lessons/42748">
+    </div>
+    <div class="answer">
+      <h2>풀이</h2>
+      <pre class="display_answer">
+      const solution = function (array, commands) {
+        var answer = [];
+        
+        for (var n=0; n<commands.length; n++) {
+          var i = commands[n][0];
+          var j = commands[n][1]; 
+          var k = commands[n][2];
+          var newArr = array.slice(i-1, j);
+          answer.push(newArr.sort((a,b) => a-b)[k-1]);
+        }
+        return answer;
+      }
+      </pre>
+    </div>
+
+    <script>
+      const solution = function (array, commands) {
+          var answer = [];
+          
+          for (var n=0; n<commands.length; n++) {
+            var i = commands[n][0];
+            var j = commands[n][1]; 
+            var k = commands[n][2];
+            var newArr = array.slice(i-1, j);
+            answer.push(newArr.sort((a,b) => a-b)[k-1]);
+          }
+          console.log(answer)
+          return answer;
+      }
+
+      solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]]); //return [5, 6, 3]
+
+    </script>
+  </body>
+</html>
